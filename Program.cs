@@ -25,7 +25,7 @@ namespace BL8_P1_P2
                 rectangles.Add(new Rectangle() { b_side= rand.Next(), a_side = rand.Next() });
             }
 
-            foreach (var rectangle in rectangles)
+            foreach (var rectangles in rectangles)
             {
                 
                     Console.WriteLine(rectangle);
