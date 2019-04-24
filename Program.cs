@@ -13,25 +13,39 @@ namespace BL8_P1_P2
             /*Rectangle f1;
             f1.a_side = 10;
             f1.b_side = 5;
-            f1.coor = 5;
             f1.x = 0;
             f1.y = 0;*/
 
-            List<Rectangle> parts = new List<Rectangle>();
+            Random rand = new Random();
+            int x = rand.Next();
+            List<Rectangle> rectangles = new List<Rectangle>(100);
 
+            for (int i = 0; i < rectangles.Count; i++)
+            {
+                rectangles.Add(new Rectangle() { b_side= rand.Next(), a_side = rand.Next() });
+            }
 
+            foreach (var rectangle in rectangles)
+            {
+                
+                    Console.WriteLine(rectangle);
+                    
+                
+            }
+
+            Console.ReadLine();
         }
 
         struct Rectangle
         {
             public int b_side;
             public int a_side;
-            public int coor;
             public int x;
             public int y;
 
 
         }
+
 
 
     }
