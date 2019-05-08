@@ -14,6 +14,8 @@ namespace BL8_P1_P2
         {
             public int aside;
             public int bside;
+            public int x;
+            public int y;
 
 
 
