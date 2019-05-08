@@ -9,7 +9,7 @@ namespace BL8_P1_P2
 {
     class Program
     {
-        //public class Rectangle//не работает, потомучто нужно по значению как в у  нас в struct
+        //public class Rectangle//не работает, т.к нужно по значению как у  нас в struct
         public struct Rectangle
         {
             public int aside;
