@@ -9,154 +9,117 @@ namespace BL8_P1_P2
 {
     class Program
     {
-        static void Main(string[] args)
+
+        public struct Rectangle
         {
-            /*Rectangle f1;
-            f1.a_side = 10;
-            f1.b_side = 5;
-            f1.x = 0;
-            f1.y = 0;*/
-            Random rand = new Random();
-
-            List<Rectangle> rectangles = new List<Rectangle>();
+            public int aside;
+            public int bside;
 
 
-            for (int i = 0; i < rectangles.Count; i++)
+
+            public void ShowInfo()
             {
-                //rectangles[i] = new Rectangle() { bside = rand.Next(10),aside = rand.Next(10) };
-                rectangles.Add(new Rectangle() { aside = rand.Next(10), bside = rand.Next(10), x = 0,y =0});
+                Console.WriteLine($"aside= {aside}  bside= {bside} ");
             }
 
-            //Rectangle found = rectangles.Find(item => item.bside == item.aside);
-            //Console.WriteLine("Цена:{0}, Название:{1}", found.bside, found.aside);
-
-            //List<Rectangle> foundBooks = rectangles.FindAll(item => item.bside == 5);
+        }
 
 
+        static void Main(string[] args)
+        {
 
+            Random rand = new Random();
 
+            List<int> joj = new List<int>();
+           
 
-            foreach (var item in rectangles)
+            Rectangle[] rectangles = new Rectangle[100];
+
+            for (int i = 0; i < 100; i++)
             {
-                if (item.bside == item.aside)
+                rectangles[i] = new Rectangle() { bside = rand.Next(10),aside = rand.Next(10), };
+               
+            }
+
+            foreach (Rectangle rectangle in rectangles)
+            {
+                rectangle.ShowInfo();
+            }
+
+
+            int clich = 0;
+
+            bool prov = false;
+            
+                for (int i = 0; i < rectangles.Length; i++)
+            {
+
+                for (int k = 0; k < joj.Count; k++)
+                {
+                    if (joj[k] == i)
+                    {
+                        prov = true;
+                        break;
+                    }
+                }
+
+                if (prov==true)
+                { 
+                    continue;;
+                }
+
+                else
+                {
+                    for (int j = i; j < rectangles.Length; j++)
+                        if (Equals(rectangles[i], rectangles[j]) & (i != j))//(rectangles[i] == rectangles[i+1])
+                        {
+                            joj.Add(j);
+
+
+                            //Console.WriteLine(rectangles[i].aside + " " + rectangles[i].bside + "  = " + rectangles[j].aside + " " + rectangles[j].bside);
+                            clich++;
+                        }
+                }
+            }
+
+                Console.WriteLine("Количество дубликатов " + clich);
+
+            //rectangles[j].Equals(rectangles[i + 1])
+
+            /*foreach (var item in rectangles)
+            {
+                if (item.bside == item.aside|&&)
                 {
                     Console.WriteLine(" yyy");
                     break;
                 }
             }
 
+            
 
 
-
-            /*
-             for (int i = 0; i < rectangles.Count; i++)
+            foreach (var rectangle in rectangles.Where(x => x.Date.Year == year))
             {
-                Rectangle rectangle = rectangles[i];
-                Console.WriteLine("Сторона:{0}, Сторона:{1}", rectangle.aside, rectangle.bside);
-            }
-             */
-
-
-
-
-            //SortUn<Rectangle>(rectangles, new IComparer());//rectangles.bside== rectangles.aside
-
-
-
-            /*foreach (var item in rectangles)
-            {
-                if (item.bside == item.aside&&)
-                {
-                    Console.WriteLine(found;
-                    break;
-                }
+                Console.WriteLine(student);
             }*/
 
-
-            /*for (int j = 0; j < 100; j++)
+            /*foreach (Rectangle rectangle in rectangles)
             {
-                if (rectangles.bside == rectangles.aside)
+                int count1 = 0;
+
+                if (rectangle == rectangle)
                 {
+                    count1++;
+                    Console.WriteLine(count1);
                     
-                    break;
                 }
             }*/
-
-            /*foreach (var item in rectangles.Distinct())
-            {
-                Console.WriteLine(item + " - " + rectangles.Where(x => x == item).Count() + " раз");
-            }*/
-
 
             Console.ReadLine();
         }
 
-        public struct Rectangle
-        {
-            public int aside;
-            public int bside;
-            public int x;
-            public int y;
-
-            Rectangle(int bside, int aside, int x, int y)
-            {
-                this.aside = aside;
-                this.bside = bside;
-                this.x = x;
-                this.y = y;
-
-            }
-
-        }
-
-        /*private static void SortUn<TSortingType>(TSortingType[] rectangles, IComparer comparer)
-        {
-            for (int i = 1; i < rectangles.Length; i++)
-            {
-                //if (numbers[i - 1].flatNumber > numbers[i].flatNumber)
-                if (comparer.Compare(rectangles[i - 1], rectangles[i]) >= 1)
-                {
-                    var temp = rectangles[i - 1];
-                    rectangles[i - 1] = rectangles[i];
-                    rectangles[i] = temp;
-                }
-            }
-        }*/
-
 
     }
 
-    /*public class IntComparer : IComparer<int>
-    {
-        public int Compare(int obj1, int obj2)
-        {
-            if (obj1 > obj2)
-            {
-                return 1;
-            }
-            else if (obj1 == obj2)
-            {
-                return 0;
-            }
-
-            return -1;
-        }
-    }*/
-
-    /*public class RectangleComparer : IComparer<Rectangle>
-    {
-        public int Compare(Rectangle obj1, Rectangle obj2)
-        {
-            if (obj1.flatNumber > (obj2).flatNumber)
-            {
-                return 1;
-            }
-            else if (obj1.flatNumber == obj2.flatNumber)
-            {
-                return 0;
-            }
-
-            return -1;
-        }
-    }*/
+    
 }
