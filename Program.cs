@@ -81,37 +81,6 @@ namespace BL8_P1_P2
 
                 Console.WriteLine("Количество дубликатов " + clich);
 
-            //rectangles[j].Equals(rectangles[i + 1])
-
-            /*foreach (var item in rectangles)
-            {
-                if (item.bside == item.aside|&&)
-                {
-                    Console.WriteLine(" yyy");
-                    break;
-                }
-            }
-
-            
-
-
-            foreach (var rectangle in rectangles.Where(x => x.Date.Year == year))
-            {
-                Console.WriteLine(student);
-            }*/
-
-            /*foreach (Rectangle rectangle in rectangles)
-            {
-                int count1 = 0;
-
-                if (rectangle == rectangle)
-                {
-                    count1++;
-                    Console.WriteLine(count1);
-                    
-                }
-            }*/
-
             Console.ReadLine();
         }
 
